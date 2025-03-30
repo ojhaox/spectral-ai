@@ -385,7 +385,28 @@ footer {
 
 @media (max-width: 768px) {
     nav {
-        padding: 0.4rem 0.8rem;
+        padding: 1.2rem 1rem;
+        height: auto;
+        min-height: 70px;
+    }
+
+    .navbar .logo {
+        height: 45px;
+        width: auto;
+    }
+
+    .navbar .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: rgba(26, 26, 26, 0.95);
+        padding: 1.2rem;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.2rem;
+        z-index: 1000;
     }
 
     .nav-left {
