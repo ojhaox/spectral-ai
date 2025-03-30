@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://spectreai.io https://*.spectreai.io; frame-src 'self' https://spectreai.io https://*.spectreai.io; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://spectreai.io https://*.spectreai.io; style-src 'self' 'unsafe-inline' https://spectreai.io https://*.spectreai.io https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' data: https://spectreai.io https://*.spectreai.io https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://spectreai.io https://*.spectreai.io; connect-src 'self' https://spectreai.io https://*.spectreai.io https://p2p.messier.app">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+    <title>Altcoin Charts - Spectrel AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-left">
+                <a href="index.html" class="nav-icon">
+                    <i class="fas fa-home"></i>
+                </a>
+                <a href="altcoins.html" class="nav-icon active">
+                    <i class="fas fa-chart-line"></i>
+                </a>
+                <a href="heatmap.html" class="nav-icon">
+                    <i class="fas fa-fire"></i>
+                </a>
+                <a href="favorites.html" class="nav-icon">
+                    <i class="fas fa-star"></i>
+                </a>
+                <a href="news.html" class="nav-icon">
+                    <i class="fas fa-newspaper"></i>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="https://p2p.binance.com/en/trade/all-payments/USDT?fiat=USD" target="_blank">
+                    <i class="fas fa-exchange-alt"></i>
+                    <span>P2P</span>
+                </a>
+                <a href="pricing.html">
+                    <i class="fas fa-tags"></i>
+                    <span>Pricing</span>
+                </a>
+                <button class="connect-wallet">
+                    <i class="fas fa-wallet"></i>
+                    <span>Connect Wallet</span>
+                </button>
+            </div>
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <div class="thin-sidebar">
+        <div class="thin-sidebar-content">
+            <a href="index.html" class="thin-sidebar-item">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="altcoins.html" class="thin-sidebar-item active">
+                <i class="fas fa-chart-line"></i>
+                <span>Altcoins</span>
+            </a>
+            <a href="heatmap.html" class="thin-sidebar-item">
+                <i class="fas fa-fire"></i>
+                <span>Heatmap</span>
+            </a>
+            <a href="favorites.html" class="thin-sidebar-item">
+                <i class="fas fa-star"></i>
+                <span>Favorites</span>
+            </a>
+            <a href="news.html" class="thin-sidebar-item">
+                <i class="fas fa-newspaper"></i>
+                <span>News</span>
+            </a>
+            <div class="thin-sidebar-social">
+                <a href="about.html" class="thin-sidebar-item">
+                    <i class="fas fa-info-circle"></i>
+                    <span>About</span>
+                </a>
+                <a href="https://twitter.com/spectralai" target="_blank" class="thin-sidebar-item">
+                    <i class="fab fa-twitter"></i>
+                    <span>Twitter</span>
+                </a>
+                <a href="https://t.me/spectralai" target="_blank" class="thin-sidebar-item">
+                    <i class="fab fa-telegram"></i>
+                    <span>Telegram</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <section id="embedded-content" class="content-section">
+            <iframe 
+                id="contentIframe"
+                src="https://spectreai.io/searchengine/altcoin-charts" 
+                title="Altcoin Charts - Spectrel AI"
+                style="width: 100%; height: 100%; border: none;"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web3; fullscreen"
+                allowfullscreen
+                sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-downloads allow-presentation"
+            ></iframe>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Spectrel AI. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        function updateIframe(src, button) {
+            // Update active state first
+            document.querySelectorAll('.nav-icon').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            button.classList.add('active');
+            
+            // Update iframe source directly
+            const iframe = document.getElementById('contentIframe');
+            iframe.src = src;
+            
+            // Force reload
+            iframe.contentWindow.location.reload();
+        }
+
+        // MetaMask Connection
+        const connectWalletBtn = document.getElementById('connectWallet');
+        let currentAccount = null;
+
+        const checkWalletConnection = async () => {
+            try {
+                if (!window.ethereum) {
+                    connectWalletBtn.textContent = 'Install MetaMask';
+                    connectWalletBtn.onclick = () => window.open('https://metamask.io/download/', '_blank');
+                    return;
+                }
+
+                const accounts = await window.ethereum.request({ method: 'eth_accounts' });
+                if (accounts.length > 0) {
+                    currentAccount = accounts[0];
+                    connectWalletBtn.textContent = `${currentAccount.slice(0, 6)}...${currentAccount.slice(-4)}`;
+                }
+            } catch (error) {
+                console.error('Error checking wallet connection:', error);
+            }
+        };
+
+        const connectWallet = async () => {
+            try {
+                if (!window.ethereum) {
+                    alert('Please install MetaMask to connect your wallet!');
+                    return;
+                }
+
+                const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                currentAccount = accounts[0];
+                connectWalletBtn.textContent = `${currentAccount.slice(0, 6)}...${currentAccount.slice(-4)}`;
+            } catch (error) {
+                console.error('Error connecting wallet:', error);
+                alert('Failed to connect wallet. Please try again.');
+            }
+        };
+
+        connectWalletBtn.addEventListener('click', connectWallet);
+        checkWalletConnection();
+
+        // Listen for account changes
+        if (window.ethereum) {
+            window.ethereum.on('accountsChanged', (accounts) => {
+                if (accounts.length > 0) {
+                    currentAccount = accounts[0];
+                    connectWalletBtn.textContent = `${currentAccount.slice(0, 6)}...${currentAccount.slice(-4)}`;
+                } else {
+                    currentAccount = null;
+                    connectWalletBtn.textContent = 'Connect Wallet';
+                }
+            });
+        }
+    </script>
+</body>
+</html> 
