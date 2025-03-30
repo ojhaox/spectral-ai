@@ -1563,6 +1563,7 @@ main {
     height: 100vh;
     transform: translate(-50%, -50%);
     pointer-events: none;
+    border: none;
 }
 
 .video-overlay {
