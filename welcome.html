@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://spectreai.io https://*.spectreai.io; frame-src 'self' https://spectreai.io https://*.spectreai.io; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://spectreai.io https://*.spectreai.io; style-src 'self' 'unsafe-inline' https://spectreai.io https://*.spectreai.io https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' data: https://spectreai.io https://*.spectreai.io https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://spectreai.io https://*.spectreai.io; connect-src 'self' https://spectreai.io https://*.spectreai.io https://p2p.messier.app">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://spectreai.io https://*.spectreai.io; frame-src 'self' https://spectreai.io https://*.spectreai.io https://www.youtube.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://spectreai.io https://*.spectreai.io; style-src 'self' 'unsafe-inline' https://spectreai.io https://*.spectreai.io https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' data: https://spectreai.io https://*.spectreai.io https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://spectreai.io https://*.spectreai.io; connect-src 'self' https://spectreai.io https://*.spectreai.io https://p2p.messier.app">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
     <title>Welcome - Spectrel AI</title>
@@ -15,17 +15,13 @@
 </head>
 <body class="welcome-page">
     <div class="video-background">
-        <video 
+        <iframe 
             id="background-video"
-            autoplay 
-            muted 
-            loop 
-            playsinline
-            preload="auto"
-        >
-            <source src="assets/SPECTER VID3.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+            src="https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1&mute=1&loop=1&playlist=YOUR_VIDEO_ID&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+        ></iframe>
         <div class="video-overlay"></div>
     </div>
 

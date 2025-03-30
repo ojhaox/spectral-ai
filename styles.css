@@ -1555,17 +1555,14 @@ main {
     overflow: hidden;
 }
 
-.video-background video {
+.video-background iframe {
     position: absolute;
     top: 50%;
     left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translateX(-50%) translateY(-50%);
-    object-fit: cover;
-    opacity: 0.8;
+    width: 100vw;
+    height: 100vh;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
 }
 
 .video-overlay {
@@ -1597,7 +1594,7 @@ main {
 }
 
 @media (max-width: 768px) {
-    .video-background video {
+    .video-background iframe {
         object-position: center;
     }
 }
