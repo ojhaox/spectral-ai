@@ -21,8 +21,8 @@
             muted 
             loop 
             playsinline
-            preload="auto"
-            style="width: 100%; height: 100%; object-fit: cover;"
+            preload="metadata"
+            poster="assets/logo.png.png"
         >
             <source src="assets/SPECTER VID3.mp4" type="video/mp4">
             Your browser does not support the video tag.
@@ -75,10 +75,15 @@
                 console.error('Error loading video:', e);
             });
             
-            // Force video play
-            video.play().catch(function(error) {
-                console.error('Error playing video:', error);
-            });
+            // Force video play with error handling
+            const playPromise = video.play();
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    console.log('Video playing successfully');
+                }).catch(error => {
+                    console.error('Error playing video:', error);
+                });
+            }
         });
     </script>
     <script src="script.js"></script>
